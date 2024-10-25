@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>{{data.person.id ? 'Modifier Personne' : 'Ajouter Personne'}}</h2>
+
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>lastName</mat-label>
+    <input matInput [(ngModel)]="data.person.lastName">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>firstName</mat-label>
+    <input matInput [(ngModel)]="data.person.firstName">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Age</mat-label>
+    <input matInput [(ngModel)]="data.person.age">
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-button (click)="onSave()">Enregistrer</button>
+</mat-dialog-actions>
