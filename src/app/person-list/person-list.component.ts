@@ -18,6 +18,7 @@ export class PersonListComponent implements OnInit {
     this.getPersons();
   }
 
+  
   getPersons(): void {
     this.personService.getPersons().subscribe((data) => {
       this.persons = data;
