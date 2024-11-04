@@ -6,15 +6,16 @@ WORKDIR /usr/src/app
 # Copier les fichiers de l'application
 COPY . .
 
-# Installer les dépendances et compiler l'application Angular en mode production
-
+# Installer Angular CLI, les dépendances et construire l'application
+RUN npm install -g @angular/cli && \
+    npm install && \
+    ng build --configuration production
 
 # Étape 2 : Servir les fichiers compilés avec Nginx
 FROM nginx:alpine
 
 # Copier les fichiers compilés depuis l'étape de build vers le dossier Nginx
-# Remplacez `frontendFormation` par le nom exact de votre dossier généré dans `dist/`
-COPY --from=build /usr/src/app/dist/frontendFormation /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/frontend-formation /usr/share/nginx/html
 
 # Exposer le port 80
 EXPOSE 80
