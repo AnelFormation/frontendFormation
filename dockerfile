@@ -15,7 +15,8 @@ RUN npm install -g @angular/cli && \
 FROM nginx:alpine
 
 # Copier les fichiers compilés depuis l'étape de build vers le dossier Nginx
-COPY --from=build /usr/src/app/dist/frontendFormation/usr/share/nginx/html
+# Remplacez `frontendFormation` par le nom exact de votre dossier généré dans `dist/`
+COPY --from=build /usr/src/app/dist/frontendFormation /usr/share/nginx/html
 
 # Exposer le port 80
 EXPOSE 80
