@@ -7,9 +7,7 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Installer les dépendances et compiler l'application Angular en mode production
-RUN npm install -g @angular/cli && \
-    npm install && \
-    ng build --prod
+
 
 # Étape 2 : Servir les fichiers compilés avec Nginx
 FROM nginx:alpine
